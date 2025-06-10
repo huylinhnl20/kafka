@@ -3,7 +3,7 @@
   hosts: localhost
   - name: Stuur bericht naar Kafka via REST Proxy
     hosts: localhost
-    tasks:
+  tasks:
       - name: Verstuur JSON bericht naar Kafka-topic
         uri:
           url: "http://kafka-rest-proxy:8082/topics/mijn_topic"
