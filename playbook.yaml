@@ -1,8 +1,6 @@
 ---
 - name: Provision OpenShift namespace, Artifactory repo, seal secrets, commit to GitHub
   hosts: localhost
-  - name: Stuur bericht naar Kafka via REST Proxy
-    hosts: localhost
   tasks:
   - name: Verstuur JSON bericht naar Kafka-topic
     uri:
