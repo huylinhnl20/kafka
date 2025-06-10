@@ -1,0 +1,20 @@
+---
+- name: Provision OpenShift namespace, Artifactory repo, seal secrets, commit to GitHub
+  hosts: localhost
+  - name: Stuur bericht naar Kafka via REST Proxy
+    hosts: localhost
+    tasks:
+      - name: Verstuur JSON bericht naar Kafka-topic
+        uri:
+          url: "http://kafka-rest-proxy:8082/topics/mijn_topic"
+          method: POST
+          headers:
+            Content-Type: "application/vnd.kafka.json.v2+json"
+            Accept: "application/vnd.kafka.v2+json"
+          body: |
+            {
+              "records": [
+                { "value": { "bericht": "Hallo via REST!" } }
+              ]
+            }
+          body_format: json
