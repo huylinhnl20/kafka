@@ -5,8 +5,8 @@
     - middleware_automation.amq_streams
 
   tasks:
-    - name: Maak topic aan
-      kafka_topic:
+  - name: Maak topic aan
+    kafka_topic:
         name: demo-topic
         partitions: 3
         replicas: 1
