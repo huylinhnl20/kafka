@@ -4,7 +4,7 @@
   tasks:
   - name: Verstuur JSON bericht naar Kafka-topic
     uri:
-        url: "http://kafka.aa062759-dev.svc.cluster.local:9092/topics/it4it.automation_gateway.action.response"
+        url: "http://kafka-rest.aa062759-dev.svc.cluster.local/topics/it4it.automation_gateway.action.response"
         method: POST
         headers:
           Content-Type: "application/vnd.kafka.json.v2+json"
