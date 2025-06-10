@@ -1,18 +1,13 @@
 ---
 - name: Provision OpenShift namespace, Artifactory repo, seal secrets, commit to GitHub
   hosts: localhost
+  collections:
+    - middleware_automation.amq_streams
+
   tasks:
-    - name: Verstuur JSON bericht naar Kafka-topic
-      uri:
-        url: "http://kafka.aa062759-dev.svc.cluster.local:8082/topics/it4it.automation_gateway.action.response"
-        method: POST
-        headers:
-          Content-Type: "application/vnd.kafka.json.v2+json"
-          Accept: "application/vnd.kafka.v2+json"
-        body: |
-          {
-            "records": [
-              { "value": { "bericht": "Hallo via REST!" } }
-            ]
-          }
-        body_format: json
+    - name: Maak topic aan
+      kafka_topic:
+        name: demo-topic
+        partitions: 3
+        replicas: 1
+        bootstrap_servers: "kafka:9092"
