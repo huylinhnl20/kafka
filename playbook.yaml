@@ -10,9 +10,9 @@
         Content-Type: "application/vnd.kafka.json.v2+json"
         Accept: "application/vnd.kafka.v2+json"
         body: |
-        {
+         {
             "records": [
-            { "value": { "bericht": "Hallo via REST!" } }
+              { "value": { "bericht": "Hallo via REST!" } }
             ]
-        }
+         }
         body_format: json
